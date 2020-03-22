@@ -15,5 +15,17 @@
   "bugs": {
     "url": "https://github.com/c-noblet/GLaDOS/issues"
   },
-  "homepage": "https://github.com/c-noblet/GLaDOS#readme"
+  "homepage": "https://github.com/c-noblet/GLaDOS#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "death": "^1.1.0",
+    "discord.js": "^12.0.2",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1",
+    "mongoose": "^5.9.5",
+    "node-cron": "^2.0.3",
+    "opusscript": "0.0.7",
+    "telegraf": "^3.36.0",
+    "wake_on_lan": "^1.0.0"
+  }
 }
