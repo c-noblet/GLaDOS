@@ -15,9 +15,10 @@ GLaDOS.telegram = new Telegram(env.telegram.token)
 GLaDOS.cron = cron.schedule
 
 GLaDOS.test = 'test';
+GLaDOS.telegram.sendMessage(env.telegram.corentin, 'test')
 
 GLaDOS.cron('0 * * * * *', () => {
-  GLaDOS.telegram.sendMessage(env.telegram.corentin, 'test')
+  
 })
 
 
@@ -36,14 +37,14 @@ GLaDOS.whoIsAbsent = () => {
           isAbsent.push(values[i].name)
         }
       }
-        resolve(isAbsent);
+      resolve(isAbsent);
     });
   });
 }
 
 GLaDOS.isHome = (macAddress) => {
   return new Promise((resolve) => {
-    const scan = spawn('nmap',["-sn", "192.168.1.0/24"])
+    const scan = spawn('nmap',["-sP", "192.168.1.0/24"])
     scan.stdout.on('data', (data) => {
       if(data.toString().includes(macAddress.toUpperCase())){
         resolve(true)
