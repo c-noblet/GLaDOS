@@ -4,7 +4,7 @@
   "description": "Homemade GLaDOS assistant",
   "main": "glados.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,8 @@
     "opusscript": "0.0.7",
     "telegraf": "^3.36.0",
     "wake_on_lan": "^1.0.0"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
   }
 }
