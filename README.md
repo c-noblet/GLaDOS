@@ -32,8 +32,10 @@ The servo python code can be found in /lib/servo.py
 
 #### Code example
 
+To move the servomotor to position -90 degrees
+
 ```javascript
-GLaDOS.lights([1, 3], false, 254, 254, 65535).then((response) => {
+GLaDOS.serv('-90').then((response) => {
   console.log(response)
 });
 ```
