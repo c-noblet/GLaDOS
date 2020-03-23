@@ -32,7 +32,7 @@ The servo python code can be found in /lib/servo.py
 
 #### Code example
 
-To move the servomotor to position -90 degrees
+To move the servomotor to position -90 degrees.
 
 ```javascript
 GLaDOS.serv('-90').then((response) => {
@@ -56,8 +56,10 @@ this method use the Philips Hue bridge API to work.
 
 #### Code example
 
+Set the lights 1 and 3 on.
+
 ```javascript
-GLaDOS.lights([1, 3], false, 254, 254, 65535).then((response) => {
+GLaDOS.lights([1, 3], true, 254, 254, 65535).then((response) => {
   console.log(response)
 });
 ```
