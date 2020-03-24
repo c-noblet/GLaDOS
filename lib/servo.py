@@ -22,5 +22,5 @@ else:
     pulse = int(abs(math.ceil(ratio * abs(angle) - servo_mid)))
 pwm.set_pwm_freq(50)
 pwm.set_pwm(channel, 0, pulse)
-print('ended')
+print('moved')
 sys.stdout.flush()
