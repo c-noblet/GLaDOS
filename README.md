@@ -2,6 +2,8 @@
 
 This is a home assistant based on the fictionnal character GLaDOS from the Portal series. 
 
+The code may be ugly so feel free to teach me all the good ways to improve myself.
+
 The project was inspired by this 2 tutorial :
 - [A Fully 3D Printable GlaDOS Robotic Ceiling Arm Lamp](https://www.instructables.com/id/A-fully-3D-printable-GlaDOS-Robotic-ceiling-arm-la/)
 - [GLADOS Home Automation (voice Recognition)](https://www.instructables.com/id/GLADOS-Home-Automation-voice-Recognition/)
