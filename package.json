@@ -2,9 +2,17 @@
   "name": "glados",
   "version": "0.0.1",
   "description": "Homemade GLaDOS assistant",
-  "main": "glados.js",
+  "main": "./build/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build:gulp": "gulp build",
+    "watch:gulp": "gulp watch",
+    "serve:gulp": "gulp serve",
+    "start:gulp": "gulp start",
+    "serve": "npm run serve:gulp -s",
+    "watch": "npm run watch:gulp -s",
+    "build": "npm run build:gulp -s",
+    "start": "npm run start:gulp -s"
   },
   "repository": {
     "type": "git",
@@ -17,13 +25,13 @@
   },
   "homepage": "https://github.com/c-noblet/GLaDOS#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "cron": "^1.8.2",
     "death": "^1.1.0",
     "discord.js": "^12.0.2",
     "express": "^4.17.1",
-    "isomorphic-fetch": "^2.2.1",
-    "mongoose": "^5.9.5",
-    "node-cron": "^2.0.3",
+    "mongoose": "^5.9.7",
     "opusscript": "0.0.7",
     "telegraf": "^3.36.0",
     "wake_on_lan": "^1.0.0"
@@ -31,9 +39,16 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
-    "@types/jest": "^25.1.4",
-    "babel-jest": "^25.1.0",
-    "jest": "^25.1.0",
-    "jest-fetch-mock": "^3.0.3"
+    "@types/axios": "^0.14.0",
+    "@types/cron": "^1.7.2",
+    "@types/express": "^4.17.4",
+    "@types/node": "^13.11.0",
+    "@types/ws": "^7.2.3",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "typescript": "^3.8.3"
   }
 }
