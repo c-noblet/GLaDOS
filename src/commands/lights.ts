@@ -1,5 +1,8 @@
 import axios from 'axios';
+import { Command } from './command';
+import { CommandContext } from './commandContext';
 import env from '../env.json';
+
 /**
  * Update Philips Hue lights array
  * @param {Array} lightsArray
@@ -7,27 +10,43 @@ import env from '../env.json';
  *  brightness: (0 to 254),
  *  hue: (0 to 65 535)
  */
-const lights = (lightsArray: ({id: number, state: boolean, saturation: number, brightness: number, hue: number})[]) => {
-  return new Promise((resolve, reject) => {
-    const fetchArray = [];
-    for (let i = 1; i < lightsArray.length+1; i++) {
+export class Lights implements Command {
+  commandNames = ['lights'];
+  
+  async run(commandContext: CommandContext): Promise<string> {
+    return new Promise((resolve, reject) => {
+      let state: boolean;
+      let response: string;
+      if(commandContext.args[1] == 'on'){
+        state = true;
+        response = 'la lumière a été allumé';
+      }else{
+        state = false;
+        response = 'la lumière a été éteinte';
+      }
+
       try {
-        fetchArray.push(
-          axios.put(`http://${env.hue.bridgeIp}/api/${env.hue.user}/lights/${lightsArray[i].id}/state`, JSON.stringify({
-            on: lightsArray[i].state,
-            sat: lightsArray[i].saturation,
-            bri: lightsArray[i].brightness,
-            hue: lightsArray[i].hue
-          }))
-        );
+        axios.put(`http://${env.hue.bridgeIp}/api/${env.hue.user}/lights/${commandContext.args[0]}/state`, {
+          on: state,
+          sat: 254,
+          bri: parseInt(commandContext.args[2]) * 25.4,
+          hue: this.getColor(commandContext.args[3])
+        }).then(() => {
+          resolve(response);
+        });
       } catch (error) {
         reject(error);
       }
-    }
-    Promise.all(fetchArray).then((values: (object)[]) => {
-      resolve(values)
     });
-  })
-}
+  }
 
-module.exports = lights;
+  getColor(color: string): number {
+    const colors = Object.entries(env.hue.colors);
+    for (const [key, value] of colors) {
+      if(key === color){
+        return value;
+      }
+    }
+    return 0;
+  }
+}
