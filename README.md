@@ -1,4 +1,4 @@
-# GLaDOS
+# GLaDOS /!\ Work in progress /!\
 
 This is a home assistant based on the fictionnal character GLaDOS from the Portal series. 
 
