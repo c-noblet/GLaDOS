@@ -8,18 +8,18 @@ The project was inspired by this 2 tutorial :
 - [A Fully 3D Printable GlaDOS Robotic Ceiling Arm Lamp](https://www.instructables.com/id/A-fully-3D-printable-GlaDOS-Robotic-ceiling-arm-la/)
 - [GLADOS Home Automation (voice Recognition)](https://www.instructables.com/id/GLADOS-Home-Automation-voice-Recognition/)
 
-## Installation
+## Installation & running
 
 ```
 npm install
-sudo node app.js
+sudo node ./build
 ```
 
-## GLaDOS methods
+## Services
 
-### isHome
+GLaDOS runs on Telegram, Discord and Express.
 
-### whoIsAbsent
+## Commands
 
 ### servo
 
@@ -66,19 +66,10 @@ GLaDOS.lights([1, 3], true, 254, 254, 65535).then((response) => {
 });
 ```
 
-### telegraf & telegram
-
-this method is based on the [telegraf](https://github.com/telegraf/telegraf#readme) package
-
-### cron
-
-this method is based on the [node-cron](https://github.com/node-cron/node-cron) package
-
 ## To do
 
-- Add Jest testing
+- Add testing
 - Comment all methods
-- Add ES6 syntax
 - Add Mi sensors compatibility
 - Add MongoDB
 - Add vocal commands recognition
