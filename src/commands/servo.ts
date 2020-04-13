@@ -1,16 +1,18 @@
 import { spawn } from 'child_process';
+import { Command } from './command';
+import { CommandContext } from './commandContext';
 
-const servo = async (angle:number): Promise<boolean | string> => {
-  return new Promise((resolve, reject) => {
-    const move = spawn('python',["lib/servo.py", angle.toString()]);
-    move.stdout.on('data', (data) => {
-      if(data.toString().search('moved') >=0){
-        resolve(true);
-      }else{
-        reject(data);
-      }
+export class Servo implements Command {
+  commandNames = ['servo'];
+
+  async run(commandContext: CommandContext): Promise<string> {
+    return new Promise((resolve) => {
+      const move = spawn('python',["./build/lib/servo.py", commandContext.args[0].toString()]);
+      move.stdout.on('data', (data) => {
+        if(data.toString().search('moved') >=0){
+          resolve(`Le servomoteur à tourné de ${commandContext.args[0]} degrés`);
+        }
+      });
     });
-  })
+  }
 }
-
-module.exports = servo;
