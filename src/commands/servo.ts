@@ -1,10 +1,9 @@
 import { spawn } from 'child_process';
-import { Command } from './command';
-import { CommandContext } from './commandContext';
+import { CommandContext } from '../context/commandContext';
 
-export class Servo implements Command {
-  commandNames = ['servo'];
-
+export default {
+  name: 'servo',
+  description: 'is a test',
   async run(commandContext: CommandContext): Promise<string> {
     return new Promise((resolve) => {
       const move = spawn('python',["./build/lib/servo.py", commandContext.args[0].toString()]);

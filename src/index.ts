@@ -8,7 +8,7 @@ TelegramServer.launch();
 DiscordServer.login(env.discord.token);
 quarterJob.start();
 ExpressServer.listen(env.express.port, () => {
-  console.log(`Express à l'écoute sur le port ${env.express.port}`, );
+  console.log(`Express à l'écoute sur le port ${env.express.port}`);
 });
 
 
