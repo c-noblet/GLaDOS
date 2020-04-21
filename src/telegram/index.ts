@@ -20,8 +20,7 @@ telegraf.on('message', async (ctx: ContextMessageUpdate) => {
     await ctx.reply(`Je ne reconnais pas cette commande. Essayez ${env.discord.prefix}help`);
   }else{
     // Sinon on execute la fonction
-    const result = await matchedCommand.run(commandContext);
-    await ctx.reply(result);
+    matchedCommand.run(commandContext);
   }
   ctx.deleteMessage;
 });

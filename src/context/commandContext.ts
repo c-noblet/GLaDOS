@@ -2,7 +2,7 @@
 export class CommandContext {
   readonly command: string;
   readonly args: string[];
-  readonly context: any;
+  readonly appContext: any;
   readonly prefix: string;
   readonly app: string;
 
@@ -18,7 +18,7 @@ export class CommandContext {
     
     this.command = args.shift().toLowerCase();
     this.args = args;
-    this.context = context;
+    this.appContext = context;
     this.prefix = prefix;
   }
 }

@@ -19,10 +19,9 @@ client.on('message', async (message: Message) => {
     await message.reply(`Je ne reconnais pas cette commande. Essayez ${env.discord.prefix}help`);
   }else{
     // Sinon on execute la fonction
-    const result = await matchedCommand.run(commandContext);
-    await message.reply(result);
+    matchedCommand.run(commandContext);
   }
-  commandContext.context.delete();
+  //commandContext.context.delete();
 });
 client.on('warn', console.warn);
 
