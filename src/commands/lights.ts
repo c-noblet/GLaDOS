@@ -27,15 +27,15 @@ export default {
       let state: boolean;
       let response: string;
       let color = 0;
-      let brightness = 0;
+      let brightness = 10;
       if(commandContext.args[1] == 'off'){
         state = false;
         response = 'la lumière a été éteinte';
       }else{
         state = true;
-        response = 'la lumière a été allumé';
         color = getColor(commandContext.args[1]);
-        brightness = parseInt(commandContext.args[2]) * 25.4
+        brightness = parseInt(commandContext.args[2]) * 25.4;
+        response = `la lumière a été allumé et mise sur ${commandContext.args[1]}`;
       }
 
       try {
