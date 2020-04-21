@@ -14,7 +14,7 @@ gulp.task('build', () => {
   del.sync(["./build/**/*.*"]);
   // => Copy env
   gulp.src("./src/**/*.json").pipe(gulp.dest("build/"));
-  gulp.src("./src/lib/*.*").pipe(gulp.dest("build/lib/"));
+  gulp.src("./src/lib/**/*.*").pipe(gulp.dest("build/lib/"));
   // => Compile TS files
   const tsCompile = gulp.src("./src/**/*.ts").pipe(gulpSourcemaps.init()).pipe(project());
   return tsCompile.js.pipe(gulpSourcemaps.write({
