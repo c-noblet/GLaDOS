@@ -32,14 +32,12 @@ The servo python code can be found in /lib/servo.py
 | ------|:------:| -----------------------------------------------------------------|
 | Angle | String | Set the servomotor angle between -90 and 90 degrees (-90, 0, 90) |
 
-#### Code example
+#### Command example
 
 To move the servomotor to position -90 degrees.
 
-```javascript
-GLaDOS.serv('-90').then((response) => {
-  console.log(response)
-});
+```
+!servo -90
 ```
 
 ### lights
@@ -56,14 +54,14 @@ this method use the Philips Hue bridge API to work.
 | brightness  | Number  | Set the Brightness of the lights (0 to 254)             |
 | hue         | Number  | Set the color of the lights (0 to 65 535)               |
 
-#### Code example
+#### Command example
 
 Set the lights 1 and 3 on.
 
-```javascript
-GLaDOS.lights([1, 3], true, 254, 254, 65535).then((response) => {
-  console.log(response)
-});
+```
+!lights 3 blue 10
+
+!lights 3 off
 ```
 
 ## To do
