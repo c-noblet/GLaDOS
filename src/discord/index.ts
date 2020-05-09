@@ -13,7 +13,7 @@ client.on('message', async (message: Message) => {
   const commandContext = new CommandContext(message, env.discord.prefix);
 
   const matchedCommand = commands.find((command: any) => command.name.includes(commandContext.command));
-  
+
   if(!matchedCommand) {
     // Si la commande n'existe pas
     await message.reply(`Je ne reconnais pas cette commande. Essayez ${env.discord.prefix}help`);
@@ -21,7 +21,7 @@ client.on('message', async (message: Message) => {
     // Sinon on execute la fonction
     matchedCommand.run(commandContext);
   }
-  //commandContext.context.delete();
+  // commandContext.context.delete();
 });
 client.on('warn', console.warn);
 

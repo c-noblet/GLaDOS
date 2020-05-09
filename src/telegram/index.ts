@@ -4,12 +4,12 @@ import env from '../env.json';
 import commands from '../commands';
 
 const telegraf = new Telegraf(env.telegram.token);
-//const telegram = new Telegram(env.telegram.token);
+// const telegram = new Telegram(env.telegram.token);
 
 telegraf.on('message', async (ctx: ContextMessageUpdate) => {
   // Vérifie si la commande vient d'un bot ou si elle n'existe pas
-  if(ctx.from.username == 'GLaDOS' || !ctx.message.text.includes(env.discord.prefix)) return undefined;
-    
+  if(ctx.from.username === 'GLaDOS' || !ctx.message.text.includes(env.discord.prefix)) return undefined;
+
   const commandContext = new CommandContext(ctx, env.discord.prefix);
 
   // Cherche la commande
@@ -22,7 +22,7 @@ telegraf.on('message', async (ctx: ContextMessageUpdate) => {
     // Sinon on execute la fonction
     matchedCommand.run(commandContext);
   }
-  ctx.deleteMessage;
+  // ctx.deleteMessage;
 });
 
 export default telegraf;
