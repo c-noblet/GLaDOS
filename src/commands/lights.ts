@@ -13,12 +13,12 @@ const getColor = (color: string): number => {
   return 0;
 }
 /**
-   * Update Philips Hue lights array
-   * @param {Array} lightsArray
-   *  saturation: (0 to 254),
-   *  brightness: (0 to 254),
-   *  hue: (0 to 65 535)
-   */
+ * Update Philips Hue lights array
+ * @param {Array} lightsArray
+ *  saturation: (0 to 254),
+ *  brightness: (0 to 254),
+ *  hue: (0 to 65 535)
+ */
 export default {
   name: 'lights',
   description: 'is a test',
@@ -27,13 +27,13 @@ export default {
       let response: string;
       let color = 0;
       let brightness = 10;
-      if(context.args[1] == 'off'){
+      if(context.args[1] === 'off'){
         state = false;
         response = 'la lumière a été éteinte';
       }else{
         state = true;
         color = getColor(context.args[1]);
-        brightness = parseInt(context.args[2]) * 25.4;
+        brightness = parseInt(context.args[2], 10) * 25.4;
         response = `la lumière a été allumé et mise sur ${context.args[1]}`;
       }
 
