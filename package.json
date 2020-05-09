@@ -2,17 +2,13 @@
   "name": "glados",
   "version": "0.0.1",
   "description": "Homemade GLaDOS assistant",
-  "main": "./build/index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "jest",
-    "build:gulp": "gulp build",
-    "watch:gulp": "gulp watch",
-    "serve:gulp": "gulp serve",
-    "start:gulp": "gulp start",
-    "serve": "npm run serve:gulp -s",
-    "watch": "npm run watch:gulp -s",
-    "build": "npm run build:gulp -s",
-    "start": "npm run start:gulp -s"
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "sudo node ."
   },
   "repository": {
     "type": "git",
@@ -45,11 +41,8 @@
     "@types/node": "^13.11.0",
     "@types/ws": "^7.2.3",
     "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-nodemon": "^2.5.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-typescript": "^6.0.0-alpha.1",
     "nodemon": "^2.0.2",
+    "tslint": "^6.1.2",
     "typescript": "^3.8.3"
   }
 }
