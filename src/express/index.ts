@@ -2,8 +2,8 @@ import express, { Request, Response} from 'express';
 import bodyParser from 'body-parser';
 import env from '../env.json';
 
-let urlencodedParser = bodyParser.urlencoded({extended: false});
-let app = express();
+const urlencodedParser = bodyParser.urlencoded({extended: false});
+const app = express();
 
 app.get('/glados', async (req, res, next) => {
   res.send('response');
