@@ -2,9 +2,10 @@ import Telegraf, { ContextMessageUpdate } from 'telegraf';
 import { CommandContext } from '../context/commandContext';
 import env from '../env.json';
 import commands from '../commands';
+import { Telegram } from 'telegraf';
 
 const telegraf = new Telegraf(env.telegram.token);
-// const telegram = new Telegram(env.telegram.token);
+const telegram = new Telegram(env.telegram.token);
 
 telegraf.on('message', async (ctx: ContextMessageUpdate) => {
   // Vérifie si la commande vient d'un bot ou si elle n'existe pas
@@ -25,4 +26,4 @@ telegraf.on('message', async (ctx: ContextMessageUpdate) => {
   // ctx.deleteMessage;
 });
 
-export default telegraf;
+export { telegraf, telegram };
