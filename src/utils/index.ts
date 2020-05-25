@@ -1,6 +1,9 @@
 import { spawn } from 'child_process';
 import env from '../env.json';
 import { eventEmitter } from '../events'
+import { Player } from './player';
+
+export { Player };
 
 export const isHome = (names: string[]=[]): Promise<string[]> => {
   return new Promise((resolve) => {
