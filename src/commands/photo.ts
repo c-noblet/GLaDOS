@@ -2,7 +2,6 @@ import { CommandContext } from '../context/commandContext';
 import { MessageAttachment } from 'discord.js'
 import { spawn } from 'child_process';
 import { readFileSync } from 'fs';
-import env from '../env.json';
 
 export default {
   name: 'photo',
