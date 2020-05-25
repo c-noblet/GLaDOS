@@ -15,7 +15,7 @@ export class CommandContext {
       this.app = 'telegram';
       args = context.message.text.slice(prefix.length).trim().split(/ +/g);
     }
-    
+
     this.command = args.shift().toLowerCase();
     this.args = args;
     this.appContext = context;
