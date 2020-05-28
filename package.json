@@ -8,7 +8,9 @@
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "sudo node ."
+    "start": "sudo node .",
+    "assets": "cp -r src/assets build/assets",
+    "lib": "cp -r src/lib build/lib"
   },
   "repository": {
     "type": "git",
@@ -25,24 +27,26 @@
     "body-parser": "^1.19.0",
     "cron": "^1.8.2",
     "death": "^1.1.0",
-    "discord.js": "^12.0.2",
+    "deepspeech-tflite": "^0.7.1",
+    "discord.js": "^12.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.7",
+    "mongoose": "^5.9.16",
     "opusscript": "0.0.7",
-    "telegraf": "^3.36.0",
-    "wake_on_lan": "^1.0.0"
+    "telegraf": "^3.38.0",
+    "wake_on_lan": "^1.0.0",
+    "wav": "^1.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
     "@types/axios": "^0.14.0",
     "@types/cron": "^1.7.2",
-    "@types/express": "^4.17.4",
-    "@types/node": "^13.11.0",
-    "@types/ws": "^7.2.3",
+    "@types/express": "^4.17.6",
+    "@types/node": "^13.13.9",
+    "@types/ws": "^7.2.4",
     "del": "^5.1.0",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.4",
     "tslint": "^6.1.2",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.3"
   }
 }
