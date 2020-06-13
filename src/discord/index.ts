@@ -21,6 +21,7 @@ client.on('message', async (message: Message) => {
     // Sinon on execute la fonction
     matchedCommand.run(commandContext);
   }
+  commandContext.appContext.delete();
   // commandContext.context.delete();
 });
 client.on('warn', console.warn);
