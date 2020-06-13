@@ -1,4 +1,4 @@
-import Telegraf, { ContextMessageUpdate } from 'telegraf';
+import Telegraf from 'telegraf';
 import { CommandContext } from '../context/commandContext';
 import env from '../env.json';
 import commands from '../commands';
@@ -7,7 +7,7 @@ import { Telegram } from 'telegraf';
 const telegraf = new Telegraf(env.telegram.token);
 const telegram = new Telegram(env.telegram.token);
 
-telegraf.on('message', async (ctx: ContextMessageUpdate) => {
+telegraf.on('text', async (ctx) => {
   // Vérifie si la commande vient d'un bot ou si elle n'existe pas
   if(ctx.from.username === 'GLaDOS' || !ctx.message.text.includes(env.discord.prefix)) return undefined;
 
